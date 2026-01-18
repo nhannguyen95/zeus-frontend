@@ -10,7 +10,11 @@ export default defineConfig({
     },
     plugins: [
         tsConfigPaths(),
-        tanstackStart(),
+        tanstackStart({
+            prerender: {
+                enabled: true,
+            }
+        }),
         // react's vite plugin must come after start's vite plugin
         viteReact(),
     ],
