@@ -21,7 +21,7 @@ export default async function Home() {
         <ul aria-label="Topics List">
           {topicsData.map((topic) => (
             <li key={topic.id}>
-              <strong><Link href={`/topics/${topic.id}`}>{topic.title}</Link></strong>: {topic.description}
+              <strong><Link href={`/topics/${topic.slug}`}>{topic.title}</Link></strong>: {topic.description}
             </li>
           ))}
         </ul>
