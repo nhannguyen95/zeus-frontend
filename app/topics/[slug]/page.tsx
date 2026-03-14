@@ -1,19 +1,21 @@
-import { topics, problems } from '../../lib/mock/data';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Topic, Problem } from '@/app/lib/models';
+import { getAllTopics, getTopicBySlugOrId, getProblemsByTopic } from '@/app/lib/mock/data';
 
 export async function generateStaticParams() {
+  const topics = await getAllTopics();
   return topics.map((topic) => ({
     slug: topic.slug,
   }));
 }
 
-async function getTopic(slug: string) {
-  return topics.find((t) => t.slug === slug);
+async function getTopic(slug: string): Promise<Topic | undefined> {
+  return getTopicBySlugOrId(slug);
 }
 
-async function getProblemsByTopicId(topicId: string) {
-  return problems.filter((p) => p.topicId === topicId);
+async function getProblemsByTopicId(topicId: string): Promise<Problem[]> {
+  return getProblemsByTopic(topicId);
 }
 
 export default async function TopicDetailPage({

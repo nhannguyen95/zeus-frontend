@@ -61,3 +61,16 @@ export const problems: Problem[] = [
     difficulty: 'Easy',
   },
 ];
+
+export async function getAllTopics(): Promise<Topic[]> {
+  return topics;
+}
+
+export async function getTopicBySlugOrId(idOrSlug: string): Promise<Topic | undefined> {
+  return topics.find((t) => t.id === idOrSlug || t.slug === idOrSlug);
+}
+
+export async function getProblemsByTopic(topicId: string): Promise<Problem[]> {
+  return problems.filter((p) => p.topicId === topicId);
+}
+

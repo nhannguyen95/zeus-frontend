@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { topics } from './lib/mock/data';
-import { Topic } from './lib/models';
+import { Topic } from '@/app/lib/models';
+import { getAllTopics } from '@/app/lib/mock/data';
 
 async function getTopics(): Promise<Topic[]> {
-  return topics;
+  return getAllTopics();
 }
 
 export default async function Home() {
