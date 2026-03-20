@@ -2,18 +2,27 @@
 
 ## Introduction
 
-This repository contains the frontend application for the "LeetCode for DevOps" platform, a Remote Code Execution as a Service (RCEaaS) system. It provides users with an interactive, isolated environment (a remote shell terminal) to solve DevOps challenges securely.
+Zeus is a Remote Code Execution as a Service (RCEaaS) platform designed for "LeetCode for DevOps" style challenges. This frontend application provides an interface for users to browse topics, select problems, and interact with a terminal environment to solve tasks.
 
-The frontend is a [Next.js](https://nextjs.org) application bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It connects directly to the platform's connectivity layer and utilizes `xterm.js` to render a terminal in the browser, allowing users to interact seamlessly with their dedicated sandboxes via WebSockets.
+While the core vision includes a browser-based terminal using `xterm.js` for secure sandbox interaction, the current implementation focuses on the **Challenge Discovery Layer**, featuring static site generation for optimal performance and rapid iteration using centralized mock data.
 
 ## Project Structure
 
-- **`app/`**: Contains all the routes, components, and logic for your application. This is where you'll be mostly working from.
-  - **`lib/`**: Shared libraries, utilities, and models.
-    - **`mock/data.ts`**: Mock data and APIs for testing and development.
-    - **`models.ts`**: TypeScript type definitions and interfaces.
-  - **`layout.tsx`**: The root layout component of the Next.js application.
+- **`app/`**: Core application logic and routing using the Next.js App Router.
+  - **`lib/`**: Shared resources and utilities.
+    - **`mock/data.ts`**: Centralized mock data layer for development and testing.
+    - **`models.ts`**: TypeScript interfaces and type definitions.
+  - **`layout.tsx`**: Root layout component.
+  - **`page.tsx`**: Home page listing all available challenge topics.
   - **Pages**:
-    - **`topics/[slug]/page.tsx`**: The Topic detail page, which displays a list of problems for a topic.
-    - **`page.tsx`**: The home page of the application that lists all topics.
-- **`public/`**: Contains all the static assets for your application, such as images.
+    - **`topics/[slug]/page.tsx`**: Topic detail page, listing specific problems for a given topic.
+    - **`problems/[slug]/page.tsx`**: Problem detail page, providing challenge descriptions and difficulty levels.
+- **`public/`**: Static assets.
+
+## Architecture
+
+This project leverages modern web patterns to ensure high performance and developer velocity:
+
+- **Static Site Generation (SSG)**: We use `generateStaticParams` for all topic and problem pages. This pre-renders challenge content at build time, ensuring sub-second navigation and improved SEO.
+- **Dynamic Routing**: The `[slug]` convention is used for hierarchical discovery (Topics -> Problems), allowing the system to scale to hundreds of challenges effortlessly.
+- **Mock-First Iteration**: Development is driven by a comprehensive mock data layer, enabling UI/UX and routing refinement ahead of backend integration.
