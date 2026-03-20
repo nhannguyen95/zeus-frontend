@@ -73,7 +73,19 @@ export async function getTopicBySlug(slug: string): Promise<Topic | undefined> {
   return topics.find((t) => t.slug === slug);
 }
 
+export async function getTopicById(id: string): Promise<Topic | undefined> {
+  return topics.find((t) => t.id === id);
+}
+
 export async function getProblemsByTopic(topicId: string): Promise<Problem[]> {
   return problems.filter((p) => p.topicId === topicId);
+}
+
+export async function getAllProblems(): Promise<Problem[]> {
+  return problems;
+}
+
+export async function getProblemBySlug(slug: string): Promise<Problem | undefined> {
+  return problems.find((p) => p.slug === slug);
 }
 

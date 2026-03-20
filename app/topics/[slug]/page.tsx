@@ -44,11 +44,13 @@ export default async function TopicDetailPage({
         <h2>Available Problems</h2>
         {topicProblems.length > 0 ? (
           <ul aria-label="Problems List">
-            {topicProblems.map((problem) => (
-              <li key={problem.id}>
-                {problem.title}
-              </li>
-            ))}
+              {topicProblems.map((problem) => (
+                <li key={problem.id}>
+                  <Link href={`/problems/${problem.slug}`}>
+                    {problem.title}
+                  </Link>
+                </li>
+              ))}
           </ul>
         ) : (
           <p>No problems found for this topic yet.</p>
