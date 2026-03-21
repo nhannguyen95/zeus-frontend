@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Zeus is a Remote Code Execution as a Service (RCEaaS) platform designed for "LeetCode for DevOps" style challenges. This frontend application provides an interface for users to browse topics, select problems, and interact with a terminal environment to solve tasks.
+Zeus (a code name for the project) is a platform designed for "LeetCode for DevOps" style challenges. This repository hosts the frontend that provides an interface for users to browse topics, select problems, and interact with a terminal environment to solve tasks.
 
 While the core vision includes a browser-based terminal using `xterm.js` for secure sandbox interaction, the current implementation focuses on the **Challenge Discovery Layer**, featuring static site generation for optimal performance and rapid iteration using centralized mock data.
 
