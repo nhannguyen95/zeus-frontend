@@ -1,0 +1,1 @@
+- [x] Static frontend scaffold under `web/`: Next.js 16 App Router + React 19 + TypeScript + Tailwind v4, static export (`output: 'export'`).

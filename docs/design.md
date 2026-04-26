@@ -81,9 +81,11 @@ clear upgrade path when traffic grows.
 
 ## 3. Component choices and why
 
-### 3.1 Frontend — Cloudflare Pages
-- Static SPA. **Free**, global CDN, auto-deploy from git.
-- No change from your plan.
+### 3.1 Frontend — Next.js (static export) on Cloudflare Pages
+
+Built and lives under [`web/`](../web). Static-exported (`output: 'export'` in
+`next.config.ts`), so the deploy artifact is plain HTML/JS/CSS — perfect fit
+for CF Pages' free tier, no Node runtime needed on the edge.
 
 ### 3.2 BFF — Cloudflare Workers (this is the key change from your plan)
 
