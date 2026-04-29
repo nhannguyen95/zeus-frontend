@@ -28,11 +28,6 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Inject environment variables
-          command: |
-            echo "NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}" > .env
-            echo "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}" >> .env
-      - run:
           command: npm run build
       - run:
           name: Create the ~/artifacts directory if it doesn't exist
