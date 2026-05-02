@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Problem, Topic } from '@/lib/models';
 import { getAllProblems, getProblemBySlug, getTopicById } from '@/lib/mock/data';
+import Sandbox from '@/components/sandbox/Sandbox';
 
 export async function generateStaticParams() {
   const problems = await getAllProblems();
@@ -54,6 +55,8 @@ export default async function ProblemDetailPage({
           <h2>Description</h2>
           <p>{problem.description}</p>
         </section>
+
+        <Sandbox />
       </article>
     </main>
   );

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Topic } from '@/lib/models';
 import { getAllTopics } from '@/lib/mock/data';
-import UserNav from '@/components/UserNav';
+import UserNav from '@/components/user-nav';
 
 async function getTopics(): Promise<Topic[]> {
   return getAllTopics();
