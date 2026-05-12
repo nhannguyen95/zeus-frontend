@@ -1,0 +1,4 @@
+docs/** filter=git-crypt diff=git-crypt
+
+# Ensure .gitattributes itself is NOT encrypted
+.gitattributes !filter !diff
